@@ -5,6 +5,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AuthService } from './services/auth.service';
 import { CommonModule } from '@angular/common';
 import { ToastComponent } from './components/toast/toast.component';
+import { ScrollService } from './services/scroll.service';
 
 @Component({
   selector: 'app-root',
@@ -20,5 +21,8 @@ import { ToastComponent } from './components/toast/toast.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(public authService: AuthService) {}
+  constructor(
+    public authService: AuthService,
+    private scrollService: ScrollService
+  ) {}
 }
