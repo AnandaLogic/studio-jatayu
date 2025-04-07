@@ -1,0 +1,81 @@
+<div class="register-container">
+  <div class="register-form">
+    <h1>REGISTER</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <!-- Full Name -->
+      <div class="input-group">
+        <div class="input-field">
+          <div class="icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <input type="text" formControlName="fullName" [placeholder]="getPlaceholder('fullName')" class="input-field">
+        </div>
+        <div class="input-underline" [ngClass]="{'error-underline': isFieldInvalid('fullName')}"></div>
+      </div>
+
+      <!-- Email -->
+      <div class="input-group">
+        <div class="input-field">
+          <div class="icon">
+            <svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.09641 6.19421C1.73102 6.52881 10.5462 11.3345 10.8751 11.5076C11.2039 11.6806 11.5385 11.7614 12.0577 11.7614C12.5769 11.7614 12.9116 11.6806 13.2404 11.5076C13.5692 11.3345 22.3844 6.52881 23.019 6.19421C23.2556 6.07305 23.6536 5.85383 23.7402 5.60576C23.8902 5.1673 23.7286 5 23.0883 5H12.0577H1.02718C0.386813 5 0.225277 5.17307 0.375274 5.60576C0.461811 5.8596 0.85988 6.07305 1.09641 6.19421Z" fill="white"/>
+              <path d="M23.5207 6.45358C23.0476 6.69588 18.8015 9.71889 15.992 11.5362L20.7342 16.8726C20.8496 16.988 20.9015 17.1264 20.838 17.1957C20.7688 17.2591 20.6188 17.2245 20.4977 17.1149L14.8093 12.315C13.9497 12.8688 13.344 13.2496 13.2401 13.3073C12.7959 13.5323 12.4844 13.5611 12.0574 13.5611C11.6305 13.5611 11.319 13.5323 10.8748 13.3073C10.7652 13.2496 10.1652 12.8688 9.30558 12.315L3.61723 17.1149C3.50185 17.2303 3.34609 17.2649 3.27686 17.1957C3.20763 17.1322 3.25955 16.988 3.37493 16.8726L8.11137 11.5362C5.30181 9.71889 1.00959 6.69588 0.536527 6.45358C0.0288455 6.19397 0 6.49973 0 6.73626C0 6.9728 0 18.5629 0 18.5629C0 19.0995 0.790369 19.7687 1.35574 19.7687H12.0574H22.7592C23.3245 19.7687 23.9995 19.0937 23.9995 18.5629C23.9995 18.5629 23.9995 6.96703 23.9995 6.73626C23.9995 6.49396 24.0341 6.19397 23.5207 6.45358Z" fill="white"/>
+            </svg>
+          </div>
+          <input type="email" formControlName="email" [placeholder]="getPlaceholder('email')" class="input-field">
+        </div>
+        <div class="input-underline" [ngClass]="{'error-underline': isFieldInvalid('email')}"></div>
+      </div>
+
+      <!-- Password -->
+      <div class="input-group">
+        <div class="input-field">
+          <div class="icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 11H5C3.89543 11 3 11.8954 3 13V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V13C21 11.8954 20.1046 11 19 11Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <input type="password" formControlName="password" [placeholder]="getPlaceholder('password')" class="input-field">
+        </div>
+        <div class="input-underline" [ngClass]="{'error-underline': isFieldInvalid('password')}"></div>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="input-group">
+        <div class="input-field">
+          <div class="icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 11H5C3.89543 11 3 11.8954 3 13V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V13C21 11.8954 20.1046 11 19 11Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <input type="password" formControlName="confirmPassword" [placeholder]="getPlaceholder('confirmPassword')" class="input-field">
+        </div>
+        <div class="input-underline" [ngClass]="{'error-underline': isFieldInvalid('confirmPassword')}"></div>
+      </div>
+
+      <!-- Mobile Number -->
+      <div class="input-group">
+        <div class="input-field">
+          <div class="icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17 2H7C5.89543 2 5 2.89543 5 4V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V4C19 2.89543 18.1046 2 17 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 18H12.01" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <input type="tel" formControlName="mobileNumber" [placeholder]="getPlaceholder('mobileNumber')" class="input-field">
+        </div>
+        <div class="input-underline" [ngClass]="{'error-underline': isFieldInvalid('mobileNumber')}"></div>
+      </div>
+
+      <button type="submit" class="register-button" [disabled]="registerForm.invalid">REGISTER</button>
+      <div class="login-link">
+        Already have an account? <span (click)="navigateToLogin()">Login</span>
+      </div>
+    </form>
+  </div>
+</div>

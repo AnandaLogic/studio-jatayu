@@ -1,0 +1,77 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="logo-container">
+      <a routerLink="/home" class="logo">
+        <img src="/logo.png" alt="Studio Jatayu Logo">
+      </a>
+    </div>
+
+    <div class="nav-links">
+      <a routerLink="/home" class="nav-link">Home</a>
+      <a routerLink="/about" class="nav-link">About</a>
+      <a routerLink="/projects" class="nav-link">Projects</a>
+      <a routerLink="/gallery" class="nav-link">Gallery</a>
+      <a routerLink="/store" class="nav-link">Store</a>
+    </div>
+
+    <div class="nav-actions">
+      <div class="right-section">
+        <a routerLink="/cart" class="cart-container">
+          <img src="/cart-icon.png" alt="Cart" class="cart-icon">
+          <span class="cart-count" *ngIf="cartCount > 0">{{ cartCount }}</span>
+        </a>
+
+        <ng-container *ngIf="!isAuthenticated; else authenticated">
+          <button class="login-button" routerLink="/login">Login</button>
+        </ng-container>
+
+        <ng-template #authenticated>
+          <div class="profile-container">
+            <img
+              src="assets/images/profile-icon.png"
+              alt="Profile"
+              class="profile-icon"
+              (click)="toggleDropdown()"
+            >
+            <div class="dropdown-menu" *ngIf="isDropdownOpen">
+              <div class="dropdown-item user-name">{{ userName }}</div>
+              <a routerLink="/orders" class="dropdown-item">Orders</a>
+              <a (click)="logout()" class="dropdown-item logout">Logout</a>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+
+    <div class="mobile-menu-container">
+      <button class="mobile-menu-toggle" (click)="toggleMobileMenu()">
+        <span class="toggle-icon"></span>
+      </button>
+      <div class="mobile-menu" [class.active]="isMobileMenuOpen">
+        <button class="close-button" (click)="toggleMobileMenu()">×</button>
+        <div class="mobile-menu-content">
+          <div class="mobile-nav-links">
+            <a routerLink="/home" (click)="toggleMobileMenu()">Home</a>
+            <a routerLink="/about" (click)="toggleMobileMenu()">About</a>
+            <a routerLink="/store" (click)="toggleMobileMenu()">Store</a>
+            <a routerLink="/contact" (click)="toggleMobileMenu()">Contact</a>
+          </div>
+
+          <div class="mobile-auth-links" *ngIf="!isAuthenticated">
+            <a routerLink="/login" (click)="toggleMobileMenu()">Login</a>
+            <a routerLink="/register" (click)="toggleMobileMenu()">Register</a>
+          </div>
+
+          <div class="mobile-profile-links" *ngIf="isAuthenticated">
+            <div class="mobile-user-info">
+              <img src="assets/images/profile-icon.png" alt="Profile" class="mobile-profile-icon">
+              <span class="mobile-user-name">{{ userName }}</span>
+            </div>
+            <a routerLink="/orders" (click)="toggleMobileMenu()">Orders</a>
+            <a (click)="logout(); toggleMobileMenu()">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,46 @@
+<div class="about-container">
+  <div class="about-content">
+    <div class="about-header">
+      <h1>ABOUT STUDIO JATAYU</h1>
+      <p>Studio Jatayu is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </div>
+
+    <div class="about-banner">
+      <img src="/about.png" alt="About Studio Jatayu">
+    </div>
+
+    <div class="team-section">
+      <h2>OUR TEAM</h2>
+
+      <div class="team-member" *ngFor="let member of teamMembers">
+        <div class="team-member-content">
+          <div class="team-member-info">
+            <div class="team-member-description">
+              <p *ngFor="let paragraph of member.description">{{paragraph}}</p>
+            </div>
+          </div>
+          <div class="team-member-profile">
+            <div class="profile-image">
+              <img [src]="member.image" [alt]="member.name">
+            </div>
+            <div class="profile-info">
+              <h3>{{member.name}}</h3>
+              <p class="role">{{member.role}}</p>
+            </div>
+            <div class="social-links">
+              <a [href]="member.socialLinks.linkedin" target="_blank" class="social-icon">
+                <img src="/linkedin.svg" alt="LinkedIn">
+              </a>
+              <a [href]="member.socialLinks.instagram" target="_blank" class="social-icon">
+                <img src="/instagram.svg" alt="Instagram">
+              </a>
+              <a [href]="member.socialLinks.twitter" target="_blank" class="social-icon">
+                <img src="/x.svg" alt="X">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

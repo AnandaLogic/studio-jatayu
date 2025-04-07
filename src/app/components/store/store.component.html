@@ -1,0 +1,27 @@
+<div class="store-container">
+  <div class="store-content">
+    <div class="store-header">
+      <h1>OUR PRODUCTS</h1>
+    </div>
+
+    <div class="products-grid">
+      <div class="product-card" *ngFor="let product of products">
+        <div class="product-image">
+          <img [src]="product.image" [alt]="product.title">
+        </div>
+        <div class="product-info">
+          <div class="product-title">
+            <h3>{{product.title}}</h3>
+            <p>{{product.type}}</p>
+          </div>
+          <div class="product-price">
+            <p>₹{{product.price}}</p>
+          </div>
+        </div>
+        <button class="add-to-cart-btn" (click)="addToCart(product)">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
