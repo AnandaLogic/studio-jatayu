@@ -1,37 +1,96 @@
 <div class="home-container">
   <section class="hero-section">
     <a routerLink="/projects/academy-of-gods" class="hero-link">
-      <img src="/hero.png" alt="Studio Jatayu">
+      <img src="assets/home/hero.png" alt="Studio Jatayu">
     </a>
   </section>
 
-  <section class="about-preview">
-    <h2>About Studio Jatayu</h2>
-    <p>Studio Jatayu is a creative animation studio dedicated to bringing captivating stories to life through innovative animation techniques. Our team of passionate artists and storytellers work together to create unique and engaging content that resonates with audiences of all ages.</p>
-    <a routerLink="/about" class="learn-more">Learn More</a>
-  </section>
 
-  <section class="services-section">
-    <h2>Our Services</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <h3>2D Animation</h3>
-        <p>Traditional and digital 2D animation services for films, series, and commercials.</p>
-      </div>
-      <div class="service-card">
-        <h3>3D Animation</h3>
-        <p>High-quality 3D animation production for various media platforms.</p>
-      </div>
-      <div class="service-card">
-        <h3>Story Development</h3>
-        <p>Creative storyboarding and script development for animated content.</p>
+  <!-- Collage Section -->
+  <section class="collage-section">
+    <div class="collage-container">
+      <div class="image-grid">
+
+        <div class="image-item">
+          <a [routerLink]="['/projects/bhag-zombie-bhag']">
+            <img
+              src="assets/home/bhag-zombie-bhag.png"
+              alt="Bhag Zombie Bhag"
+              class="collage-image"
+            />
+            <div class="image-overlay">
+              <h3 class="project-title">Bhag Zombie Bhag</h3>
+            </div>
+          </a>
+        </div>
+
+        <div class="image-item">
+          <a [routerLink]="['/projects/niko']">
+            <img
+              src="assets/home/niko.png"
+              alt="Fox character"
+              class="collage-image"
+            />
+            <div class="image-overlay">
+              <h3 class="project-title">Niko</h3>
+            </div>
+          </a>
+        </div>
+
+        <div class="image-item">
+          <a [routerLink]="['/projects/balakanda']">
+            <img
+              src="assets/home/balakanda.png"
+              alt="Warrior character"
+              class="collage-image"
+            />
+            <div class="image-overlay">
+              <h3 class="project-title">Balakanda</h3>
+            </div>
+          </a>
+        </div>
+
+        <div class="image-item">
+          <a [routerLink]="['/projects/girl-and-the-monster']">
+            <img
+              src="assets/home/girl-and-the-monster.png"
+              alt="Child with large green creature"
+              class="collage-image"
+            />
+            <div class="image-overlay">
+              <h3 class="project-title">Girl and the Monster</h3>
+            </div>
+          </a>
+        </div>
+
+        <div class="image-item">
+          <a [routerLink]="['/projects/dino-and-dyno']">
+            <img
+              src="assets/home/dino-and-dyno.png"
+              alt="Girl with toy dinosaur"
+              class="collage-image"
+            />
+            <div class="image-overlay">
+              <h3 class="project-title">Dino and Dyno</h3>
+            </div>
+          </a>
+        </div>
+
+        <div class="image-item">
+          <a [routerLink]="['/projects/academy-of-gods']">
+            <img
+              src="assets/home/academy-of-gods.png"
+              alt="Character in ornate clothing"
+              class="collage-image"
+            />
+            <div class="image-overlay">
+              <h3 class="project-title">Academy of Gods</h3>
+            </div>
+          </a>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <section class="contact-preview">
-    <h2>Let's Create Together</h2>
-    <p>Have a project in mind? We'd love to hear about it. Get in touch with us to discuss your animation needs.</p>
-    <a routerLink="/contact" class="contact-button">Contact Us</a>
-  </section>
 </div>

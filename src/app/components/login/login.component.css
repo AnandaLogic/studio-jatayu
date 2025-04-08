@@ -154,3 +154,7 @@ input[type="password"]:focus {
     padding: 30px 20px;
   }
 }
+
+.toggle-password {
+  cursor: pointer;
+}

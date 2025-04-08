@@ -16,6 +16,12 @@ export class LoginComponent implements OnInit {
   password: string = '';
   rememberMe: boolean = false;
   errorMessage: string = '';
+  showPassword: boolean = false;
+
+togglePassword(): void {
+  this.showPassword = !this.showPassword;
+}
+
 
   constructor(
     private authService: AuthService,

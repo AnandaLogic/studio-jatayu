@@ -15,7 +15,7 @@ export class AboutComponent {
     {
       name: 'Vishnu Vardhan Reddy K',
       role: 'CEO & Co-Founder',
-      image: '/team1.png',
+      image: 'assets/about/vishnu.png',
       description: [
         'Vishnu Vardhan Reddy K is a seasoned Animator, Creative Director, and Storyteller with over a decade of experience in the animation industry. A graduate of Vancouver Film School (VFS), he has honed his skills in 3D animation, storytelling, and creative direction, working with some of the renowned names in the industry.',
         'Throughout his career, Vishnu has contributed to studios, including Technicolor, Rockstar Games, Green Gold Animation, and channels like Netflix, Nickelodeon, Cartoon Network and Pogo, taking on key roles in animation, creative supervision, and production leadership. His expertise spans narrative development, pipeline optimization, and end-to-end content creation, making him an integral part impactful animated project.',
@@ -30,7 +30,7 @@ export class AboutComponent {
     {
       name: 'Debalina Dasgupta',
       role: 'Creative Head',
-      image: '/team2.png',
+      image: 'assets/about/debalina.png',
       description: [
         'Debalina Dasgupta is a highly accomplished Concept Artist & Color Concept Designer with 15+ years of experience in the animation. She has played a pivotal role in shaping the visual aesthetics of numerous projects across Animated feature films & animated series.',
         'Her journey includes working with renowned studios such as Utv Motion Pictures, Prime Focus, Green Gold Animation, and Rocket Science VFX, contributing to content for platforms like Netflix, Amazon Prime, Pogo, and Nickelodeon.',

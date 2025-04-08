@@ -5,7 +5,7 @@
     <form (ngSubmit)="onSubmit()">
       <div class="input-group">
         <div class="input-field">
-          <img src="/mail.svg" alt="Email" class="input-icon">
+          <img src="assets/icons/mail.svg" alt="Email" class="input-icon">
           <input type="email" [(ngModel)]="email" name="email" required placeholder="Email ID">
         </div>
         <div class="input-line"></div>
@@ -13,8 +13,10 @@
 
       <div class="input-group">
         <div class="input-field">
-          <img src="/lock.svg" alt="Password" class="input-icon">
-          <input type="password" [(ngModel)]="password" name="password" required placeholder="Password">
+          <img src="assets/icons/lock.svg" alt="Password" class="input-icon">
+          <input [type]="showPassword ? 'text' : 'password'" [(ngModel)]="password" name="password" required placeholder="Password">
+          <!-- <img src="assets/icons/eye.svg" class="input-icon toggle-password" (click)="togglePassword()" [alt]="showPassword ? 'Hide' : 'Show'">
+         -->
         </div>
         <div class="input-line"></div>
       </div>

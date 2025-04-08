@@ -19,35 +19,35 @@ export class StoreComponent {
       title: 'Academy of Gods',
       type: 'Comic Book',
       price: 399,
-      image: 'aog-poster.png'
+      image: 'assets/store/aog-poster.png'
     },
     {
       id: 2,
       title: 'Academy of Gods',
       type: 'Comic Book',
       price: 399,
-      image: 'aog-poster.png'
+      image: 'assets/store/aog-poster.png'
     },
     {
       id: 3,
       title: 'Academy of Gods',
       type: 'Comic Book',
       price: 399,
-      image: 'aog-poster.png'
+      image: 'assets/store/aog-poster.png'
     },
     {
       id: 4,
       title: 'Academy of Gods',
       type: 'Comic Book',
       price: 399,
-      image: 'aog-poster.png'
+      image: 'assets/store/aog-poster.png'
     },
     {
       id: 5,
       title: 'Academy of Gods',
       type: 'Comic Book',
       price: 399,
-      image: 'aog-poster.png'
+      image: 'assets/store/aog-poster.png'
     }
   ];
 
