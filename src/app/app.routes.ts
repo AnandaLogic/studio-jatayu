@@ -1,4 +1,5 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -14,6 +15,7 @@ import { DinoAndDynoComponent } from './components/projects/dino-and-dyno/dino-a
 import { GirlAndTheMonsterComponent } from './components/projects/girl-and-the-monster/girl-and-the-monster.component';
 import { NikoComponent } from './components/projects/niko/niko.component';
 import { BhagZombieBhagComponent } from './components/projects/bhag-zombie-bhag/bhag-zombie-bhag.component';
+
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -34,3 +36,9 @@ export const routes: Routes = [
   { path: 'projects/bhag-zombie-bhag', component: BhagZombieBhagComponent },
   { path: '**', redirectTo: '/home' }
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})    
+export class AppRoutingModule { }
