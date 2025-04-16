@@ -11,7 +11,7 @@
 
 .login-form {
   width: 401px;
-  height: 428px;
+  height: auto;
   background-color: #000;
   border: 1px solid #fff;
   border-radius: 50px;
@@ -68,6 +68,11 @@ input[type="password"]:focus {
   background-color: #fff;
   width: 100%;
   margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.input-field.error + .input-line {
+  background-color: #dc3545;
 }
 
 .error-message {
@@ -77,7 +82,7 @@ input[type="password"]:focus {
   font-size: 14px;
 }
 
-.options {
+.form-options {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -97,6 +102,17 @@ input[type="password"]:focus {
   height: 19px;
   background-color: #000;
   border: 1px solid #fff;
+}
+
+.forgot-password {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: opacity 0.3s ease;
+}
+
+.forgot-password:hover {
+  opacity: 0.8;
 }
 
 .login-button {
@@ -139,8 +155,6 @@ input[type="password"]:focus {
   cursor: pointer;
 }
 
-
-
 .forgot-password-link {
   text-align: center;
   margin-top: 10px;
@@ -166,4 +180,52 @@ input[type="password"]:focus {
 
 .toggle-password {
   cursor: pointer;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+  color: #fff;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #fff;
+}
+
+.divider span {
+  padding: 0 10px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.google-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 25px;
+  font-size: 16px;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.google-button:hover {
+  background-color: #f5f5f5;
+  border-color: #f5f5f5;
+}
+
+.google-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
 }

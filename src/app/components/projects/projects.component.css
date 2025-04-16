@@ -8,8 +8,7 @@
 }
 
 .project-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
+
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -41,7 +40,6 @@
 }
 
 .project-info {
-  padding: 20px;
   text-align: center;
 }
 

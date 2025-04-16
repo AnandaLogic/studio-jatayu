@@ -17,6 +17,8 @@ export class NavbarComponent implements OnInit {
   isAuthenticated = false;
   isDropdownOpen = false;
   cartCount = 0;
+  isAdmin = false;
+  isLoggedIn = false;
 
   constructor(
     private authService: AuthService,
@@ -25,16 +27,37 @@ export class NavbarComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.authService.isAuthenticated$.subscribe(isAuthenticated => {
-      this.isAuthenticated = isAuthenticated;
-      if (isAuthenticated) {
-        // In a real app, you would get this from your auth service
-        this.userName = 'John Doe';
+    this.authService.isAuthenticated$.subscribe(
+      isAuthenticated => {
+        this.isLoggedIn = isAuthenticated;
+        this.isAuthenticated = isAuthenticated;
+        if (isAuthenticated) {
+          // Get the current user's name from AuthService
+          this.authService.getCurrentUser().subscribe(user => {
+            if (user) {
+              this.userName = user.displayName || 'User';
+
+              // Get additional user data from Firestore
+              this.authService.getUserData().subscribe(userData => {
+                if (userData) {
+                  if (userData.displayName) {
+                    this.userName = userData.displayName;
+                  }
+                  // Check if user is admin from Firestore data
+                  this.isAdmin = userData.role === 'admin';
+                }
+              });
+            }
+          });
+        } else {
+          this.userName = '';
+          this.isAdmin = false;
+        }
       }
-    });
+    );
 
     this.cartService.cartItems$.subscribe(items => {
-      this.cartCount = items.reduce((count, item) => count + item.quantity, 0);
+      this.cartCount = items.length;
     });
   }
 
@@ -56,9 +79,18 @@ export class NavbarComponent implements OnInit {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
+  goToDashboard() {
+    if (this.isAdmin) {
+      this.router.navigate(['/admin-dashboard']);
+    } else {
+      this.router.navigate(['/user-dashboard']);
+    }
+    this.isDropdownOpen = false;
+  }
+
   logout() {
     this.authService.logout();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/home']);
     this.closeMobileMenu();
   }
 }

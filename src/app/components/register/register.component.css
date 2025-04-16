@@ -9,8 +9,8 @@
 }
 
 .register-form {
-  width: 401px;
-  height: 628px;
+  width: 500px;
+  height: auto;
   border: 1px solid #fff;
   border-radius: 50px;
   padding: 40px;
@@ -25,6 +25,7 @@
 
 .input-group {
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .input-field {
@@ -33,12 +34,14 @@
   background: transparent;
   border: none;
   padding: 10px 0;
+  width: 100%;
 }
 
 .icon {
   margin-right: 10px;
   display: flex;
   align-items: center;
+  min-width: 24px;
 }
 
 .input-field input {
@@ -62,6 +65,7 @@
   height: 1px;
   background: rgba(255, 255, 255, 0.5);
   width: 100%;
+  margin-top: 5px;
 }
 
 .error-underline {
@@ -114,4 +118,103 @@
 
 .toggle-password {
   cursor: pointer;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+  color: #fff;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #fff;
+}
+
+.divider span {
+  padding: 0 10px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.google-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 25px;
+  font-size: 16px;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.google-button:hover {
+  background-color: #f5f5f5;
+  border-color: #f5f5f5;
+}
+
+.google-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.phone-input-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.country-code-select {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  padding: 5px;
+  cursor: pointer;
+  width: 120px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 20px;
+}
+
+.country-code-select:focus {
+  outline: none;
+}
+
+.country-code-select option {
+  background-color: #000;
+  color: #fff;
+  padding: 8px;
+}
+
+.country-code-select optgroup {
+  background-color: #000;
+  color: #fff;
+  font-weight: bold;
+  padding: 8px;
+}
+
+.country-code-select optgroup option {
+  background-color: #000;
+  color: #fff;
+  padding-left: 16px;
+}
+
+.phone-input {
+  flex: 1;
 }

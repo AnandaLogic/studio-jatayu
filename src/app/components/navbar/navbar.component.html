@@ -26,17 +26,16 @@
         </ng-container>
 
         <ng-template #authenticated>
-          <div class="profile-container">
-            <img
-              src="assets/icons/profile.svg"
-              alt="Profile"
-              class="profile-icon"
-              (click)="toggleDropdown()"
-            >
-            <div class="dropdown-menu" *ngIf="isDropdownOpen">
-              <div class="dropdown-item user-name">{{ userName }}</div>
-              <a routerLink="/orders" class="dropdown-item">Orders</a>
-              <a (click)="logout()" class="dropdown-item logout">Logout</a>
+          <div class="profile-container" *ngIf="isLoggedIn">
+            <div class="profile-dropdown">
+              <img src="assets/icons/profile.svg" alt="Profile" class="profile-icon" (click)="toggleDropdown()">
+              <div class="dropdown-menu" [class.show]="isDropdownOpen">
+                <div class="dropdown-header">
+                  <a routerLink="/profile" class="username">{{ userName }}</a>
+                </div>
+                <a routerLink="/user-dashboard" class="dropdown-item">Orders</a>
+                <a (click)="logout()" class="dropdown-item">Logout</a>
+              </div>
             </div>
           </div>
         </ng-template>
@@ -68,7 +67,7 @@
               <img src="assets/icons/profile.svg" alt="Profile" class="mobile-profile-icon">
               <span class="mobile-user-name">{{ userName }}</span>
             </div>
-            <a routerLink="/orders" (click)="toggleMobileMenu()">Orders</a>
+            <a routerLink="/user-dashboard" (click)="toggleMobileMenu()">Orders</a>
             <a (click)="logout(); toggleMobileMenu()">Logout</a>
           </div>
         </div>

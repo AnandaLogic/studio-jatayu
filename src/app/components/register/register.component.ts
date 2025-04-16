@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -12,10 +13,16 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
+  name: string = '';
+  email: string = '';
+  password: string = '';
+  error: string = '';
+  showPassword: boolean = false;
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -28,6 +35,7 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required]],
+      countryCode: ['+91', [Validators.required]],
       mobileNumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]]
     }, { validators: this.passwordMatchValidator });
   }
@@ -49,12 +57,28 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  onSubmit(): void {
-    if (this.registerForm.valid) {
-      console.log('Registration form submitted', this.registerForm.value);
+  togglePassword(): void {
+    this.showPassword = !this.showPassword;
+  }
+
+  async onSubmit() {
+    try {
+      // Implement email/password registration
+      // This will be implemented later
       this.router.navigate(['/login']);
-    } else {
-      this.markFormGroupTouched(this.registerForm);
+    } catch (error) {
+      this.error = 'Registration failed';
+      console.error('Registration error:', error);
+    }
+  }
+
+  async registerWithGoogle() {
+    try {
+      await this.authService.loginWithGoogle();
+      this.router.navigate(['/user-dashboard']);
+    } catch (error) {
+      this.error = 'Google registration failed';
+      console.error('Google registration error:', error);
     }
   }
 

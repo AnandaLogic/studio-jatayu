@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { CartService, CartItem } from '../../services/cart.service';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
@@ -28,7 +28,7 @@ export class CartComponent implements OnInit {
       this.total = this.cartService.getCartTotal();
     });
 
-    this.authService.isAuthenticated$.subscribe(isAuth => {
+    this.authService.isAuthenticated$.subscribe((isAuth: boolean) => {
       this.isAuthenticated = isAuth;
     });
   }
@@ -45,16 +45,16 @@ export class CartComponent implements OnInit {
 
   checkout() {
     if (this.isAuthenticated) {
-      // TODO: Implement payment processing
-      console.log('Processing payment...');
-      this.cartService.clearCart();
-      this.router.navigate(['/thank-you']);
+      // Navigate to checkout page
+      this.router.navigate(['/checkout']);
     } else {
+      // Navigate to login page if user is not authenticated
       this.router.navigate(['/login']);
     }
   }
 
   continueShopping() {
+    // Navigate to store page
     this.router.navigate(['/store']);
   }
 }

@@ -1,0 +1,35 @@
+<div class="admin-dashboard">
+  <header class="dashboard-header">
+    <h1>{{ adminName }} (Admin)</h1>
+  </header>
+
+  <section class="admin-controls">
+    <div class="add-admin-section">
+      <h2>Add New Admin</h2>
+      <div class="input-group">
+        <input
+          type="email"
+          [(ngModel)]="newAdminEmail"
+          placeholder="Enter email to make admin"
+          class="email-input"
+        >
+        <button (click)="addAdmin()" class="add-admin-btn">Add Admin</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="orders-section">
+    <h2>All Orders</h2>
+    <div *ngIf="orders.length > 0; else noOrders" class="orders-container">
+      <!-- Orders will be displayed here -->
+      <div *ngFor="let order of orders" class="order-item">
+        <!-- Order details will be added later -->
+      </div>
+    </div>
+    <ng-template #noOrders>
+      <div class="no-orders">
+        <p>No orders found.</p>
+      </div>
+    </ng-template>
+  </section>
+</div>

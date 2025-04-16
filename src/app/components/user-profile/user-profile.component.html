@@ -1,0 +1,188 @@
+<div class="profile-container">
+  <div class="profile-header">
+    <h1>User Profile</h1>
+    <button class="dashboard-button" (click)="goToDashboard()">Go to Dashboard</button>
+  </div>
+
+  <div class="profile-content" *ngIf="!loading; else loadingTemplate">
+    <div class="error-message" *ngIf="error">{{ error }}</div>
+
+    <form [formGroup]="profileForm" class="profile-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          formControlName="name"
+          [class.editing]="isEditing"
+          [readonly]="!isEditing"
+          placeholder="Enter your name"
+        >
+        <div class="error-message" *ngIf="profileForm.get('name')?.errors?.['required'] && profileForm.get('name')?.touched">
+          Name is required
+        </div>
+        <div class="error-message" *ngIf="profileForm.get('name')?.errors?.['minlength'] && profileForm.get('name')?.touched">
+          Name must be at least 2 characters long
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          readonly
+          class="readonly"
+          placeholder="Your email address"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <div class="phone-input">
+          <select formControlName="countryCode" [disabled]="!isEditing">
+            <option value="+91">+91</option>
+            <option value="+1">+1</option>
+            <option value="+44">+44</option>
+            <option value="+81">+81</option>
+            <option value="+86">+86</option>
+            <option value="+49">+49</option>
+            <option value="+33">+33</option>
+            <option value="+61">+61</option>
+            <option value="+55">+55</option>
+            <option value="+7">+7</option>
+          </select>
+          <input
+            type="tel"
+            id="phone"
+            formControlName="phone"
+            [class.editing]="isEditing"
+            [readonly]="!isEditing"
+            placeholder="Enter 10-digit phone number"
+          >
+        </div>
+        <div class="error-message" *ngIf="profileForm.get('phone')?.errors?.['required'] && profileForm.get('phone')?.touched">
+          Phone number is required
+        </div>
+        <div class="error-message" *ngIf="profileForm.get('phone')?.errors?.['pattern'] && profileForm.get('phone')?.touched">
+          Please enter a valid 10-digit phone number
+        </div>
+      </div>
+
+      <!-- Address Section -->
+      <div class="address-section" formGroupName="address">
+        <h3>Shipping Address</h3>
+
+        <div class="form-group">
+          <label for="street">Street Address</label>
+          <input
+            type="text"
+            id="street"
+            formControlName="street"
+            [class.editing]="isEditing"
+            [readonly]="!isEditing"
+            placeholder="Enter street address"
+          >
+          <div class="error-message" *ngIf="profileForm.get('address.street')?.errors?.['required'] && profileForm.get('address.street')?.touched">
+            Street address is required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="city">City</label>
+          <input
+            type="text"
+            id="city"
+            formControlName="city"
+            [class.editing]="isEditing"
+            [readonly]="!isEditing"
+            placeholder="Enter city"
+          >
+          <div class="error-message" *ngIf="profileForm.get('address.city')?.errors?.['required'] && profileForm.get('address.city')?.touched">
+            City is required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="state">State</label>
+          <input
+            type="text"
+            id="state"
+            formControlName="state"
+            [class.editing]="isEditing"
+            [readonly]="!isEditing"
+            placeholder="Enter state"
+          >
+          <div class="error-message" *ngIf="profileForm.get('address.state')?.errors?.['required'] && profileForm.get('address.state')?.touched">
+            State is required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input
+            type="text"
+            id="country"
+            formControlName="country"
+            [class.editing]="isEditing"
+            [readonly]="!isEditing"
+            placeholder="Enter country"
+          >
+          <div class="error-message" *ngIf="profileForm.get('address.country')?.errors?.['required'] && profileForm.get('address.country')?.touched">
+            Country is required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="zipCode">ZIP Code</label>
+          <input
+            type="text"
+            id="zipCode"
+            formControlName="zipCode"
+            [class.editing]="isEditing"
+            [readonly]="!isEditing"
+            placeholder="Enter 6-digit ZIP code"
+          >
+          <div class="error-message" *ngIf="profileForm.get('address.zipCode')?.errors?.['required'] && profileForm.get('address.zipCode')?.touched">
+            ZIP code is required
+          </div>
+          <div class="error-message" *ngIf="profileForm.get('address.zipCode')?.errors?.['pattern'] && profileForm.get('address.zipCode')?.touched">
+            Please enter a valid 6-digit ZIP code
+          </div>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button
+          *ngIf="!isEditing"
+          class="edit-button"
+          (click)="startEditing()"
+        >
+          Edit Profile
+        </button>
+        <div class="action-buttons" *ngIf="isEditing">
+          <button
+            class="save-button"
+            (click)="saveChanges()"
+            [disabled]="!profileForm.valid || !profileForm.dirty"
+          >
+            Save Changes
+          </button>
+          <button
+            class="cancel-button"
+            (click)="cancelEditing()"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<ng-template #loadingTemplate>
+  <div class="loading-spinner">
+    Loading...
+  </div>
+</ng-template>

@@ -1,0 +1,21 @@
+<div class="profile-dropdown">
+  <div class="profile-trigger" (click)="toggleDropdown($event)">
+    <img [src]="user?.photoURL || 'assets/default-avatar.png'" alt="Profile" class="profile-image">
+    <span class="username">{{ user?.displayName || 'User' }}</span>
+  </div>
+
+  <div class="dropdown-content" *ngIf="isOpen">
+    <div class="profile-info">
+      <img [src]="user?.photoURL || 'assets/default-avatar.png'" alt="Profile" class="profile-image-large">
+      <div class="user-details">
+        <h3>{{ user?.displayName || 'User' }}</h3>
+        <p>{{ user?.email }}</p>
+      </div>
+    </div>
+
+    <div class="profile-navigation">
+      <a (click)="goToDashboard()" class="nav-link">Go to Dashboard</a>
+      <a (click)="logout()" class="nav-link logout">Logout</a>
+    </div>
+  </div>
+</div>
