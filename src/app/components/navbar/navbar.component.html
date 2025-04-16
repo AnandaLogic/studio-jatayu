@@ -48,13 +48,14 @@
         <span class="toggle-icon"></span>
       </button>
       <div class="mobile-menu" [class.active]="isMobileMenuOpen">
-        <button class="close-button" (click)="toggleMobileMenu()">×</button>
         <div class="mobile-menu-content">
           <div class="mobile-nav-links">
             <a routerLink="/home" (click)="toggleMobileMenu()">Home</a>
             <a routerLink="/about" (click)="toggleMobileMenu()">About</a>
+            <a routerLink="/projects" (click)="toggleMobileMenu()">Projects</a>
+            <a routerLink="/gallery" (click)="toggleMobileMenu()">Gallery</a>
             <a routerLink="/store" (click)="toggleMobileMenu()">Store</a>
-            <a routerLink="/contact" (click)="toggleMobileMenu()">Contact</a>
+            <a routerLink="/cart" (click)="toggleMobileMenu()">Cart</a>
           </div>
 
           <div class="mobile-auth-links" *ngIf="!isAuthenticated">
